@@ -1,0 +1,57 @@
+
+<div *ngIf="!paises[0]; else divPais"
+     class="alert alert-info">
+    Espere por favor...
+</div>
+
+<ng-template #divPais>
+    <div class="row">
+        <div class="col-9">
+            <h1>País: <small>{{paises[0].name.common}}</small></h1>
+        </div>
+    </div>
+<!--     
+    <td><img class="small-flag" [src]="pais.flags.svg"></td>
+    <td>{{ pais.name.common }} - {{ pais.capital}}</td>
+    <td>{{ pais.population | number }}</td> -->
+
+    <div class="row">
+        <div class="col-4">
+            <h3>Bandera</h3>
+            <img class="small-flag" 
+                 width="50%" 
+                 [src]="paises[0].flags.svg">
+        </div>
+
+        <div class="col">
+            <h3>Información</h3>
+            <ul class="list-group">
+                <li class="list-group-item">
+                    <strong>Cápital</strong> {{ paises[0].capital }}  </li>
+                <li class="list-group-item">
+                    <strong>Población</strong> {{ paises[0].population  | number }}  </li>
+                <li class="list-group-item">
+                    <strong>Código numérico</strong> {{ paises[0].ccn3 }}  </li>
+                <li class="list-group-item">
+                    <strong>Código alpha3</strong> {{ paises[0].cca3}}  </li>
+                <li class="list-group-item">
+                    <strong>Zona horaria</strong> {{ paises[0].timezones}}  </li>
+            </ul>
+        </div>
+    </div>
+    <h3>Traducciones</h3>
+    <div class="row">
+        <div class="col">
+            <span class="badge bg-primary mr-5">{{ paises[0].translations['spa']['official']  }}</span>
+            <span class="badge bg-primary mr-5">{{ paises[0].translations['fra']['official']  }}</span>
+            <span class="badge bg-primary mr-5">{{ paises[0].translations['deu']['official']  }}</span>
+            <span class="badge bg-primary mr-5">{{ paises[0].translations['ita']['official']  }}</span>
+            <span class="badge bg-primary mr-5">{{ paises[0].translations['jpn']['official']  }}</span>
+            <span class="badge bg-primary mr-5">{{ paises[0].translations['rus']['official']  }}</span>
+            <span class="badge bg-primary mr-5">{{ paises[0].translations['ara']['official']  }}</span>
+        </div>
+    </div>
+    <pre class="mt-5">
+        {{ paises[0] | json }}
+    </pre>
+</ng-template>
